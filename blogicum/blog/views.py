@@ -71,7 +71,7 @@ class PostDeleteView(LoginRequiredMixin, PostMixin,
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["form"] = PostForm(instance=self.object)
+        context['form'] = PostForm(instance=self.object)
         return context
 
 

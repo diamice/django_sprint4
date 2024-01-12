@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+COMMENT_MAX_LENGTH = 75
+
 
 class BaseModel(models.Model):
     is_published = models.BooleanField(
@@ -113,7 +115,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
-        ordering = ('created_at', )
+        ordering = ('created_at',)
 
     def __str__(self):
-        return self.text
+        return self.text[:COMMENT_MAX_LENGTH]
